@@ -2,8 +2,8 @@ const chai = require('chai');
 const data = require('../data/data.js').indexPage;
 const locator = require('../data/locator.js');
 
-describe('Testing Search functionality works as intended', function () {
-    it('Right page opened', function(){
+describe('Search functionality for valid SKU:', function () {
+    it('Product page should be opened', function(){
         this.timeout(50000);
         browser.url('/');
         browser.setValue(locator.indexPage.searchField, data.validSku);
@@ -14,8 +14,26 @@ describe('Testing Search functionality works as intended', function () {
         chai.assert.equal(skuInUrl, data.validSku,'You are at the wrong page');
     });
 
-    it('Img is visible', function() {
+    it('Image should be visible', function() {
         let imgIsVisisble = browser.isVisible(locator.productPage.imgViewer);
         chai.assert.isTrue(imgIsVisisble,'Image is NOT visible');
     })
+});
+
+describe('Search functionality for INVALID SKU:', function () {
+    it('Search page should be opened', function () {
+        this.timeout(50000);
+        browser.url('/');
+        browser.setValue(locator.indexPage.searchField, data.invalidSku);
+        browser.submitForm(locator.indexPage.searchField);
+        browser.waitForText(locator.searchPage.srMessage);
+        let wordsFieldIsVisisble = browser.isVisible(locator.searchPage.wordsField);
+        chai.assert.isTrue(wordsFieldIsVisisble,'Words field is NOT visible');
+    });
+
+    it('Search result message should be visible', function () {
+        let messageIsVisisble = browser.isVisible(locator.searchPage.srMessage);
+        chai.assert.isTrue(messageIsVisisble, 'Message is NOT visible');
+    });
+
 });
