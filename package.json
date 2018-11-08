@@ -1,0 +1,31 @@
+{
+  "name": "outward",
+  "version": "1.0.0",
+  "description": "Coding Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "report": "marge ./reports/wdiomochawesome.json --autoOpen --reportFilename ./report.html --reportDir ./mochawesome-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqagleb/outward.git"
+  },
+  "author": "Gleb Shmukler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sqagleb/outward/issues"
+  },
+  "homepage": "https://github.com/sqagleb/outward#readme",
+  "devDependencies": {
+    "mochawesome-report-generator": "^3.1.4",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-mochawesome-reporter": "^2.0.1",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.5",
+    "webdriverio": "^4.14.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
