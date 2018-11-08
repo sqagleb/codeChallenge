@@ -1,7 +1,10 @@
 module.exports = {
+    overlayPage: {
+        closeButton: '.stickyOverlayMinimizeButton'
+    },
     indexPage: {
         searchField: '#search-field',
-        searchButton: '.icon-search'
+        storeButton: '.c-account-nav__link'
     },
 
     productPage: {
@@ -11,5 +14,9 @@ module.exports = {
     searchPage: {
         wordsField: '#words',
         srMessage: '.message'
+    },
+
+    storeLocatorPage: {
+        stateSelector: '#state-list-selector'
     }
 };

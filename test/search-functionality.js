@@ -6,6 +6,7 @@ describe('Search functionality for valid SKU:', function () {
     it('Product page should be opened', function(){
         this.timeout(50000);
         browser.url('/');
+        browser.click(locator.overlayPage.closeButton);
         browser.setValue(locator.indexPage.searchField, data.validSku);
         browser.submitForm(locator.indexPage.searchField);
         let pageUrl = browser.getUrl();
@@ -26,7 +27,7 @@ describe('Search functionality for INVALID SKU:', function () {
         browser.url('/');
         browser.setValue(locator.indexPage.searchField, data.invalidSku);
         browser.submitForm(locator.indexPage.searchField);
-        browser.waitForText(locator.searchPage.srMessage);
+        browser.waitForText(locator.searchPage.srMessage, 3000);
         let wordsFieldIsVisisble = browser.isVisible(locator.searchPage.wordsField);
         chai.assert.isTrue(wordsFieldIsVisisble,'Words field is NOT visible');
     });
