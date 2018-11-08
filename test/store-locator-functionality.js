@@ -4,7 +4,6 @@ const locator = require('../data/locator.js');
 
 describe('Store locator functionality:', function () {
     it(`Selecting ${data.testState1} should give ${data.state1Stores} stores result`, function(){
-        this.timeout(50000);
         browser.url('https://www.westelm.com/customer-service/store-locator.html?cm_re=GlobalLinks-_-Footer-_-FindAStore#viewStoreList');
         browser.click(locator.overlayPage.closeButton);
         browser.waitForVisible(locator.storeLocatorPage.allStoresButton);

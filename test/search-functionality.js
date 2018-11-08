@@ -4,7 +4,6 @@ const locator = require('../data/locator.js');
 
 describe('Search functionality for valid SKU:', function () {
     it('Product page should be opened', function(){
-        this.timeout(50000);
         browser.url('/');
         browser.click(locator.overlayPage.closeButton);
         browser.setValue(locator.indexPage.searchField, data.validSku);
@@ -23,11 +22,10 @@ describe('Search functionality for valid SKU:', function () {
 
 describe('Search functionality for INVALID SKU:', function () {
     it('Search page should be opened', function () {
-        this.timeout(50000);
         browser.url('/');
         browser.setValue(locator.indexPage.searchField, data.invalidSku);
         browser.submitForm(locator.indexPage.searchField);
-        browser.waitForText(locator.searchPage.srMessage, 3000);
+        browser.waitForVisible(locator.searchPage.srMessage, 10000);
         let wordsFieldIsVisisble = browser.isVisible(locator.searchPage.wordsField);
         chai.assert.isTrue(wordsFieldIsVisisble,'Words field is NOT visible');
     });
